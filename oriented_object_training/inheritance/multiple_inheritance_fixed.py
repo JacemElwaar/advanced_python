@@ -15,9 +15,9 @@ class Car(Vehicle):
 
     def __init__(self,engine, distance_traveled=0, unit='miles', tires=[]):
         print(f"this is the Car and the distance traveled is {distance_traveled}")
-        super().__init__(distance_traveled, unit)
+        super().__init__(distance_traveled=distance_traveled, unit=unit)
         if not tires: 
-            tire = [self.default_tire, self.default_tire]
+            tires = [self.default_tire, self.default_tire]
         
         self.tires = tires
         self.engine = engine 
@@ -30,7 +30,7 @@ class Car(Vehicle):
 class Boat(Vehicle):
     def __init__(self, boat_type= 'sail',  distance_traveled=0, unit='miles'):
         print(f"this is the Boat and the distance traveled is {distance_traveled}")
-        super().__init__(distance_traveled, unit)
+        super().__init__(distance_traveled=distance_traveled, unit=unit)
         self.boat_type = boat_type
 
     def sail(self, distance):
@@ -43,7 +43,7 @@ class Boat(Vehicle):
 
 class AmphibiousVehicle(Car, Boat):
     def __init__(self, engine, tires= [], distance_traveled=0 , unit='miles'):
-        super().__init__(engine, distance_traveled, unit, tires) 
+        super().__init__(engine=engine, distance_traveled=distance_traveled, unit=unit, tires=tires) 
         self.boat_type = 'motor'
     
     def travel(self, land_distance, water_distance):
@@ -52,9 +52,6 @@ class AmphibiousVehicle(Car, Boat):
 
 
 
-# check with __mro__ the order of the classes that are inherited 
 
-# (<class '__main__.AmphibiousVehicle'>, <class '__main__.Car'>, <class '__main__.Boat'>, <class '__main__.Vehicle'>, <class 'object'>)
-# AmphibiousVehicle -> Car -> Boat -> Vehicle -> object
-# super in car will call the super class of Boat
-# super in Boat will call the super class of Vehicle
+
+# how the issue have been fixed 
