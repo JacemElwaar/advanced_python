@@ -1,0 +1,14 @@
+Why Use a Class Method?
+1/ Alternative Constructors:
+Class methods are often used to create alternative constructors.
+In the example you provided, the bicycle method serves as an alternative way to create a Vehicle object. Instead of passing all the parameters required by the main __init__ constructor, you can use Vehicle.bicycle() to create a specialized type of Vehicle (a bicycle, in this case) without needing to manually set the engine to None and define the tires.
+This simplifies object creation when you need to create a specific variant of the class.
+
+2/ Class-Specific Logic:
+   ==> modify class level attributes 
+Sometimes you want to perform operations that are related to the class rather than any particular instance.
+For example, if you have logic that needs to modify a class-level attribute, a class method allows you to do this easily because it receives the class (cls) as an argument.
+
+3/ Encapsulation of Logic:
+By using class methods, you can encapsulate logic related to creating or managing objects, making the code cleaner and easier to maintain.
+For example, if you need to change how a bicycle is constructed, you only need to update the logic in the bicycle class method.
